@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: V004
+      author: danilatang
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              schemaName: users_schema
+              tableName: users_roles
+      changes:
+        - createTable:
+            tableName: users_roles
+            schemaName: users_schema
+            columns:
+              - column:
+                  name: user_id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: role_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: users_roles
+            baseColumnNames: user_id
+            constraintName: fk_users_entity
+            referencedTableName: users
+            referencedColumnNames: id
+            baseTableSchemaName: users_schema
+            referencedTableSchemaName: users_schema
+        - addForeignKeyConstraint:
+            baseTableName: users_roles
+            baseColumnNames: role_id
+            constraintName: fk_roles_entity
+            referencedTableName: roles
+            referencedColumnNames: id
+            baseTableSchemaName: users_schema
+            referencedTableSchemaName: users_schema
