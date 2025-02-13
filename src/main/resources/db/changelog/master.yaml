@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/create-schema.yaml
+  - include:
+      file: db/changelog/changeset/create_user_entity_table.yaml
+  - include:
+      file: db/changelog/changeset/create_roles_entity_table.yaml
+  - include:
+      file: db/changelog/changeset/create_users_entity_roles_table.yaml
