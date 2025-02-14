@@ -10,7 +10,8 @@ import java.util.Map;
 public enum ErrorCodes {
     USER_WITH_EMAIL_ALREADY_EXIST(0, ValidationConstants.USER_WITH_EMAIL_ALREADY_EXIST),
     EMAIL_NOT_VALID(1, ValidationConstants.EMAIL_NOT_VALID),
-    EMAIL_NOT_EMPTY(2, ValidationConstants.EMAIL_NOT_EMPTY);
+    EMAIL_NOT_EMPTY(2, ValidationConstants.EMAIL_NOT_EMPTY),
+    USER_NOT_FOUND(3, ValidationConstants.USER_NOT_FOUND);
 
     public static final Map<String, Integer> ERROR_CODE_MAP = new HashMap<>();
 
